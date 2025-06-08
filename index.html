@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>NOT Filtering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5865F2" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 30px;
+        background-color: #f0f2f5;
+      }
+      #msg {
+        display: none;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        if (window.navigator.standalone) {
+          // ✅ ホーム画面から起動された場合 → ホームページ起動
+          window.location.href = "http://abehiroshi.la.coocan.jp/";
+        } else {
+          // 🚫 Safariなどブラウザから開かれた場合 → 案内表示
+          document.getElementById("msg").style.display = "block";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div id="msg">
+      <h2>このアプリはホーム画面からのみ起動できます</h2>
+      <p>Safariの共有ボタン（四角と上矢印）から<br>「ホーム画面に追加」をしてください。</p>
+    </div>
+  </body>
+</html>
